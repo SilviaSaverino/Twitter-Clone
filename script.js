@@ -15,7 +15,6 @@ function getFeedHtml(){
             <div class="tweet-inner">
                 <img src="${tweet.profilePic}" class="profile-pic">
                 <div>
-                    <p>ciao</p>
                     <p class="handle">${tweet.handle}</p>
                     <p class="tweet-text">${tweet.tweetText}</p>
                     <div class="tweet-details">
@@ -36,4 +35,8 @@ function getFeedHtml(){
     })
     return feedHtml
 }
-getFeedHtml()
+
+function render(){
+    document.getElementById('feed').innerHTML= getFeedHtml()
+}
+render()
