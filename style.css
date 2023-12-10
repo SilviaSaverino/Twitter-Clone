@@ -45,13 +45,14 @@ header{
 /* textareas + btn */
 
 textarea{
-    border: none;
+    border: 1px solid greenyellow;
     padding: 10px;
     margin: 0 0 20px 0;
     height: 60px;
     width: 100%;
     font-size: 20px;
     line-height: 30px;
+    resize: none
 }
 
 button{
