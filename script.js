@@ -25,7 +25,7 @@ function handleLikeClick(tweetId) {
     // if false: that object will be filtered out and won't be saved int targetTweetObj
     const targetTweetObj = tweetsData.filter(function (tweet) {
         return tweet.uuid === tweetId
-    })
+    })[0]
     console.log(targetTweetObj)
 }
 
