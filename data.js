@@ -47,7 +47,7 @@ export const tweetsData = [
             },
             {
                 handle: `@YummyCoder64`,
-                profilePic: `assets/images/love.png`,
+                profilePic: `assets/images/flamingo.png`,
                 tweetText: `You are wonderful just as you are! ❤️`,
             },
         ],
