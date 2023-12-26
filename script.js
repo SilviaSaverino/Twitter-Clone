@@ -27,6 +27,7 @@ function handleLikeClick(tweetId) {
         return tweet.uuid === tweetId
     })[0]
     targetTweetObj.likes++
+    render()
     console.log(targetTweetObj)
     
 }
