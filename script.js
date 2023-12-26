@@ -8,11 +8,10 @@ tweetBtn.addEventListener('click', function () {
 })
 
 document.addEventListener('click', function (e) {
-    if (e.target.dataset.reply) {
-        console.log('ciao')
-    }
-    else if (e.target.dataset.like) {
+    if(e.target.dataset.like) {
         handleLikeClick(e.target.dataset.like)
+    }else if(e.target.dataset.retweet){
+        handleRetweetClick(e.target.dataset.retweet)
     }
 })
 
@@ -27,7 +26,7 @@ function handleLikeClick(tweetId) {
     const targetTweetObj = tweetsData.filter(function (tweet) {
         return tweet.uuid === tweetId
     })[0]
-    
+
     if (targetTweetObj.isLiked === false){
         targetTweetObj.likes++
     }else{
@@ -36,6 +35,23 @@ function handleLikeClick(tweetId) {
     targetTweetObj.isLiked = !targetTweetObj.isLiked
     render()
     console.log(targetTweetObj)
+    
+}
+
+function handleRetweetClick(tweetId){
+    const retweetTargetObj = tweetsData.filter(function(tweet){
+        return tweet.uuid === tweetId
+    })[0]
+    
+    
+    if(retweetTargetObj.isRetweeted){
+        retweetTargetObj.retweets--
+    }
+    else{
+        retweetTargetObj.retweets++
+    }
+    retweetTargetObj.isRetweeted = !retweetTargetObj.isRetweeted
+    render()
     
 }
 
