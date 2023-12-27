@@ -1,6 +1,5 @@
 import { tweetsData } from './data.js'
 
-const tweetBtn = document.getElementById('tweet-btn')
 const tweetInput = document.getElementById('tweet-input')
 
 document.addEventListener('click', function(e){
@@ -10,7 +9,7 @@ document.addEventListener('click', function(e){
         handleRetweetClick(e.target.dataset.retweet)   
     }else if(e.target.dataset.reply){
         handleReplyClick(e.target.dataset.reply)
-    }else if(tweetBtn){
+    }else if(e.target.id === 'tweet-btn'){
         handleTweetBtnClick()
     }
 })
