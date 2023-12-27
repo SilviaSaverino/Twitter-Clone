@@ -14,10 +14,9 @@ document.addEventListener('click', function(e){
 })
 
 function handleLikeClick(tweetId){
-    // we are checking if the uuid property from data.js file 
-    // is the same as the one stored in tweetId data obtained when clicking the icon
-    // the test will be run for every element in the array, to return either
-    // true or false
+    // checking if the uuid property from data.js file 
+    // is the same as the one stored in tweetId data obtained when clicking the icon.
+    // The test will be run for every element in the array, to return either true or false
     // if true: that element will be save to targetTweetObj
     // if false: that object will be filtered out and won't be saved int targetTweetObj
     
