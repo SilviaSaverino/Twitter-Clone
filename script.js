@@ -1,8 +1,6 @@
 import { tweetsData } from './data.js'
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
-const tweetInput = document.getElementById('tweet-input')
-
 document.addEventListener('click', function(e){
     if(e.target.dataset.like) {
         handleLikeClick(e.target.dataset.like)   
@@ -60,20 +58,26 @@ function handleReplyClick(replyId){
 }
 
 function handleTweetBtnClick(){
-    tweetsData.unshift({
-        handle: `@NewUser`,
-        profilePic: `assets/images/logo.png`,
-        likes:0 ,
-        retweets:0 ,
-        tweetText: `${tweetInput.value}!`,
-        replies: [],
-        isLiked: false,
-        isRetweeted: false,
-        uuid: uuidv4()
-    })
-    render()
-}
+    const tweetInput = document.getElementById('tweet-input')
 
+    if(tweetInput.value){
+        tweetsData.unshift({
+            handle: `@NewUser`,
+            profilePic: `./assets/images/logo.png`,
+            likes: 0,
+            retweets: 0,
+            tweetText: tweetInput.value,
+            replies: [],
+            isLiked: false,
+            isRetweeted: false,
+            uuid: uuidv4()
+        })
+        render()
+        tweetInput.value=''
+        }else{
+            console.log('empty tweet')
+        }
+}
 
 function getFeedHtml() {
     let feedHtml = ``
