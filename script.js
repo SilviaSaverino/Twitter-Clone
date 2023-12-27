@@ -3,10 +3,6 @@ import { tweetsData } from './data.js'
 const tweetBtn = document.getElementById('tweet-btn')
 const tweetInput = document.getElementById('tweet-input')
 
-tweetBtn.addEventListener('click', function(){
-    console.log(tweetInput.value)
-})
-
 document.addEventListener('click', function(e){
     if(e.target.dataset.like) {
         handleLikeClick(e.target.dataset.like)   
@@ -14,6 +10,8 @@ document.addEventListener('click', function(e){
         handleRetweetClick(e.target.dataset.retweet)   
     }else if(e.target.dataset.reply){
         handleReplyClick(e.target.dataset.reply)
+    }else if(tweetBtn){
+        handleTweetBtnClick()
     }
 })
 
@@ -61,12 +59,17 @@ function handleReplyClick(replyId){
     document.getElementById(`replies-${replyId}`).classList.toggle('hidden')
 }
 
+function handleTweetBtnClick(){
+    console.log(tweetInput.value)
+}
+
+
 function getFeedHtml() {
     let feedHtml = ``
+    
     tweetsData.forEach(function(tweet){
         let likeIconClass = ''
         let sharedIconClass = ''
-
         if(tweet.isLiked){
             likeIconClass='liked'
         }else if(tweet.isRetweeted){
@@ -87,12 +90,8 @@ function getFeedHtml() {
                     </div>
                 </div>
             `
-            })
-            
+            })    
         }
-
-        
-        
 
         feedHtml += `
         <div class="tweet">
