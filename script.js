@@ -114,7 +114,11 @@ function getFeedHtml() {
                     </div>   
                 </div>            
             </div>
+            <div id="replies-${tweet.uuid}">
+            ${repliesHtml}
+            </div> 
         </div>
+        
     `
     })
     return feedHtml
