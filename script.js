@@ -3,19 +3,19 @@ import { tweetsData } from './data.js'
 const tweetBtn = document.getElementById('tweet-btn')
 const tweetInput = document.getElementById('tweet-input')
 
-tweetBtn.addEventListener('click', function () {
+tweetBtn.addEventListener('click', function(){
     console.log(tweetInput.value)
 })
 
-document.addEventListener('click', function (e) {
+document.addEventListener('click', function(e){
     if(e.target.dataset.like) {
-        handleLikeClick(e.target.dataset.like)
+        handleLikeClick(e.target.dataset.like)   
     }else if(e.target.dataset.retweet){
-        handleRetweetClick(e.target.dataset.retweet)
+        handleRetweetClick(e.target.dataset.retweet)   
     }
 })
 
-function handleLikeClick(tweetId) {
+function handleLikeClick(tweetId){
     // we are checking if the uuid property from data.js file 
     // is the same as the one stored in tweetId data obtained when clicking the icon
     // the test will be run for every element in the array, to return either
@@ -57,7 +57,16 @@ function handleRetweetClick(tweetId){
 
 function getFeedHtml() {
     let feedHtml = ``
-    tweetsData.forEach(function (tweet) {
+    tweetsData.forEach(function(tweet){
+        let likeIconClass = ''
+        let sharedIconClass = ''
+
+        if(tweet.isLiked){
+            likeIconClass='liked'
+        }else if(tweet.isRetweeted){
+            sharedIconClass='retweeted'
+        }
+
         feedHtml += `
         <div class="tweet">
             <div class="tweet-inner">
@@ -72,12 +81,12 @@ function getFeedHtml() {
                         ${tweet.replies.length}
                         </span>
                         <span class="tweet-detail">
-                        <i class="fa-regular fa-heart"
+                        <i class="fa-regular fa-heart ${likeIconClass}"
                         data-like="${tweet.uuid}"></i>
                         ${tweet.likes}
                         </span>
                         <span class="tweet-detail">
-                        <i class="fa-solid fa-retweet"
+                        <i class="fa-solid fa-retweet ${sharedIconClass}"
                         data-retweet="${tweet.uuid}"></i>
                         ${tweet.retweets}
                         </span>
