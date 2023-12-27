@@ -60,7 +60,18 @@ function handleReplyClick(replyId){
 }
 
 function handleTweetBtnClick(){
-    console.log(tweetInput.value)
+    tweetsData.unshift({
+        handle: `@NewUser`,
+        profilePic: `assets/images/logo.png`,
+        likes:0 ,
+        retweets:0 ,
+        tweetText: `${tweetInput.value}!`,
+        replies: [],
+        isLiked: false,
+        isRetweeted: false,
+        uuid: uuidv4()
+    })
+    render()
 }
 
 
