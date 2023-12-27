@@ -81,7 +81,7 @@ function getFeedHtml() {
                         ${tweet.replies.length}
                         </span>
                         <span class="tweet-detail">
-                        <i class="fa-regular fa-heart ${likeIconClass}"
+                        <i class="fa-solid fa-heart ${likeIconClass}"
                         data-like="${tweet.uuid}"></i>
                         ${tweet.likes}
                         </span>
